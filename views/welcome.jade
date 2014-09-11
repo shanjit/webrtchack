@@ -1,20 +1,32 @@
 extends layout
 
 block content
-	script(type="text/javascript", src="/js/home.js")
-	#fullpage
-		#section1.section
-			.intro
-			h1 Room-id - #{roomid}
-			a(href="/editor/zg")
-				img(style='margin: 70px 0 10px 0;',src="http://www.silabs.com/SiteCollectionImages/Misc/zero-gecko-icon.png")
-			a(href="/editor/tg")
-				img(style='margin: 70px 0 10px 0;',src="http://www.silabs.com/SiteCollectionImages/Misc/tiny-gecko-icon.png")
-			a(href="/editor/og")
-				img(style='margin: 70px 0 10px 0;',src="http://www.silabs.com/SiteCollectionImages/Misc/gecko-icon.png")
-			a(href="/editor/lg")
-				img(style='margin: 70px 0 10px 0;', src="http://www.silabs.com/SiteCollectionImages/Misc/leopard-gecko-icon.png")
-			a(href="/editor/gg")
-				img(style='margin: 70px 0 10px 0;',src="http://www.silabs.com/SiteCollectionImages/Misc/giant-gecko-icon.png")
-			a(href="/editor/wg")
-				img(style='margin: 70px 0 10px 0;',src="http://www.silabs.com/SiteCollectionImages/Misc/wonder-gecko-icon.png")
+	.row-fluid.well
+		.span5
+			p(id="guide") Welcome to the #{roomid} container #{objects.size}
+		.span1
+
+		.span6
+			.span4
+				#save
+					.btn.btn-primary(data-intro="Save in Dropbox" data-position="left") Record Video
+			.span4
+				#compile
+					.btn.btn-primary(data-intro="Compile saved file" data-position="bottom") Record Audio
+			.span4
+				#downloadbin
+					.btn.btn-primary(data-intro="Download binary file" data-position="bottom") Upload data
+	.row-fluid
+		.span12.well(style='height: 85vh;')
+			- for (var i = 0; i < objects.size; i=i+4)
+				div.row-fluid(align="center")
+					div.span12
+						div.span3.offset1
+							ul.thumbnails
+		
+		script(type='text/javascript', src='http://cdn.jsdelivr.net/ace/1.1.01/min/ace.js',  charset='utf-8')
+		script(type='text/javascript', src='/js/chardinjs.min.js', charset='utf-8')
+		link(rel="stylesheet", type="text/css", href="/stylesheets/chardinjs.css")
+		script(type='text/javascript', src='/js/showeditor.js')
+		script(type='text/javascript', src='/js/humane.min.js')
+		link(rel="stylesheet", type="text/css", href="/stylesheets/flatty.css")
