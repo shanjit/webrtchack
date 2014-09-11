@@ -5,17 +5,15 @@ block content
 	#fullpage
 		#section0.section
 			.intro
-				h1(style='margin: 70px 0 10px 0;') Build. Code. Play.
-				h2(style='margin: 70px 0 10px 0;font-size: 300%') #hackagecko
+				h1(style='margin: 70px 0 10px 0;color:white;') x-message 
+				h2(style='margin: 70px 0 10px 0;font-size: 300%') #hackx
 		#section2.section
 			.intro
-				img(src="/images/hack.png", height="768" width="1366")
-		#section3.section
-			div.row-fluid
-				.span4
-
-				.span4
-					h1(style='margin: 70px 0 10px 0;') Get Started
-					a(href="/auth/dropbox")
-						img(style='margin: 70px 0 10px 0;', src="https://www.dropbox.com/static/16890/images/logo.png")
-				.span4
+				h1(style='margin: 70px 0 10px 0;color:white;') Choose a container
+				br
+				br
+				br
+				br
+				br
+				form(method="get", action="/search")
+					input(type='search', action='/search', name='roomid', placeholder='message id', style='width: 500px; height: 44px ;font-size: 200%')

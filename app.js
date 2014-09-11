@@ -64,6 +64,8 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var editor = require('./routes/editor');
 var welcome = require('./routes/welcome');
+var search = require('./routes/search');
+
 
 var passport = require('passport')
   , GoogleStrategy = require('passport-google').Strategy;
@@ -104,8 +106,7 @@ app.use('/downloadbin', function(req, res){
 // The editor page for the hackgecko app
 
 app.use('/editor', editor);
-
-
+app.use('/search', search );
 app.use('/welcome', welcome);
 
 
