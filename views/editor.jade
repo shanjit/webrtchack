@@ -1,0 +1,40 @@
+extends layout
+
+block content
+	.row-fluid.well
+		.span5
+			p(id="guide") Welcome to the #{title} editor
+		.span1
+
+		.span6
+			.span3
+				#save
+					.btn.btn-primary(data-intro="Save in Dropbox" data-position="left") Save
+			.span3
+				#compile
+					.btn.btn-primary(data-intro="Compile saved file" data-position="bottom") Compile
+			.span3
+				#downloadbin
+					.btn.btn-primary(data-intro="Download binary file" data-position="bottom") Download
+			.span3
+				#back
+					.btn.btn-primary(data-intro="Choose another board" data-position="bottom") Back
+	.row-fluid
+		.span2.well(style='height: 85vh;')
+			p(style="font-family:arial;font-size:30px;padding:5px 20px" data-intro="Dropbox projects" data-position="bottom") Projects
+			hr
+			p(style="font-family:arial;font-size:20px;padding:5px 20px")
+					a(id="load1", href="") Hello Blinky
+			p(style="font-family:arial;font-size:20px;padding:5px 20px")
+				a(id="load2", href="") Blinky II
+		.span10.well(style='height: 85vh;')
+			div#editor(data-intro="Clean Editor" data-position="left")
+				-var ob = data
+				| #{data}
+		
+		script(type='text/javascript', src='http://cdn.jsdelivr.net/ace/1.1.01/min/ace.js',  charset='utf-8')
+		script(type='text/javascript', src='/js/chardinjs.min.js', charset='utf-8')
+		link(rel="stylesheet", type="text/css", href="/stylesheets/chardinjs.css")
+		script(type='text/javascript', src='/js/showeditor.js')
+		script(type='text/javascript', src='/js/humane.min.js')
+		link(rel="stylesheet", type="text/css", href="/stylesheets/flatty.css")
