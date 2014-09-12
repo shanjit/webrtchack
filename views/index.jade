@@ -9,11 +9,9 @@ block content
 				h2(style='margin: 70px 0 10px 0;font-size: 300%') #hackx
 		#section2.section
 			.intro
-				h1(style='margin: 70px 0 10px 0;color:white;') Choose a container
+				h1(style='margin: 70px 0 10px 0;color:white;') Choose a room
 				br
 				br
 				br
-				br
-				br
-				form(method="get", action="/search")
-					input(type='search', action='/search', name='roomid', placeholder='message id', style='width: 500px; height: 44px ;font-size: 200%')
+				form(method="get", action="/room")
+					input(type='search', action='/search', name='roomid', placeholder='Room', style='width: 500px; height: 44px ;font-size: 150%')

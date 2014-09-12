@@ -106,7 +106,7 @@ app.use('/downloadbin', function(req, res){
 // The editor page for the hackgecko app
 
 app.use('/editor', editor);
-app.use('/search', search );
+app.use('/room', search );
 app.use('/welcome', welcome);
 
 
