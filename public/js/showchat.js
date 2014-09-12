@@ -78,7 +78,7 @@ setWebcamAndMic();
 function setWebcamAndMic() {
 trace("Requesting local stream");
 // Call into getUserMedia via the polyfill (adapter.js).
-getUserMedia({ audio: true,
+getUserMedia({ audio: false,
 video: true }, gotStream, function() {});
 }
 
@@ -104,9 +104,7 @@ pc2.onaddstream = gotRemoteStream;
 
 pc1.addStream(localstream);
 trace("Adding Local Stream to peer connection");
-
-
-  pc1.createOffer(onCreateOfferSuccess, onCreateSessionDescriptionError);
+pc1.createOffer(onCreateOfferSuccess, onCreateSessionDescriptionError);
 
 
 }
@@ -131,11 +129,11 @@ function onCreateOfferSuccess(desc) {
 }
 
 function onSetLocalSuccess(pc) {
-  trace(getName(pc) + ' setLocalDescription complete');
+  trace(' setLocalDescription complete');
 }
 
 function onSetRemoteSuccess(pc) {
-  trace(getName(pc) + ' setRemoteDescription complete');
+  trace(' setRemoteDescription complete');
 }
 
 function onCreateAnswerSuccess(desc) {
@@ -147,44 +145,6 @@ function onCreateAnswerSuccess(desc) {
 }
 
 
-
-function createOffer(){
-pc1.createOffer(function (sessionDescription) {
-    pc1.setLocalDescription(sessionDescription);
-
-    // POST-Offer-SDP-For-Other-Peer(sessionDescription.sdp, sessionDescription.type);
-
-}, function(error) {
-    alert(error);
-}, { 'mandatory': { 'OfferToReceiveAudio': true, 'OfferToReceiveVideo': true } });
-
-
-pc2.setRemoteDescription(offer);
-
-}
-
-
-
-function createAnswer(){
-// Since the "remote" side has no media stream we need
-// to pass in the right constraints in order for it to
-// accept the incoming offer of audio and video.
-pc2.createAnswer(gotDescription2, null, sdpConstraints);
-}
-
-function setAnswer(){
-var sdp = document.getElementById("answerSdp").value;
-var answer = new RTCSessionDescription({type:'answer',sdp:sdp});
-pc2.setLocalDescription(answer);
-trace("Modified Answer from pc2 \n" + sdp);
-pc1.setRemoteDescription(answer);
-}
-
-function gotDescription2(desc) {
-document.getElementById("answerSdp").disabled = false;
-document.getElementById("answerSdp").value = desc.sdp;
-}
-
 function hangup() {
 trace("Ending call");
 localstream.stop();
@@ -193,8 +153,6 @@ pc2.close();
 pc1 = null;
 pc2 = null;
 
-document.getElementById("offerSdp").disabled = true;
-document.getElementById("answerSdp").disabled = true;
 
 }
 
