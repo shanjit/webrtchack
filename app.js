@@ -5,9 +5,7 @@ var logger = require('morgan');
 var session = require('cookie-session');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var everyauth = require('everyauth')
-  , connect = require('connect');
-
+var everyauth = require('everyauth');
 
 //Dropbox login
 var conf = require('./conf.js')

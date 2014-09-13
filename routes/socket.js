@@ -1,11 +1,14 @@
-
+	
 // Socket connections like TCP are persistant in nature
 module.exports = {
 
         startSocketServer: function (server) {
 
-        var io = require('socket.io').listen(server);
-		io.sockets.on('connection', function (socket) {
+        var io1 = require('socket.io').listen(server);
+        var io = io1.of('/hey');
+        console.log(io);
+
+		io.on('connection', function (socket) {
 
     	console.log('A new user connected!');
 
@@ -26,8 +29,8 @@ module.exports = {
 	});
 
 	socket.on('create or join', function (message) {
-		console.log(io.eio.clientsCount);
-		var numClients = io.eio.clientsCount; //io.sockets.clients(room).length;
+		console.log(io.server.sockets.sockets.length);
+		var numClients = io.server.sockets.sockets.length; //io.sockets.clients(room).length;
 
 		log('Room ' + message.room + ' has ' + numClients + ' client(s)');
 		log('Request to create or join', message.room);

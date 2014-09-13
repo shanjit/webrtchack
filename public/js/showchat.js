@@ -6,7 +6,7 @@
     	"payload": "" 
 		}
 
-		var socket = io.connect();
+		var socket = io('/hey').connect();
 
 
 var isChannelReady; // Did both people join ?
@@ -128,7 +128,7 @@ socket.on('full', function (room){
   alert('Please try some other room!');
   //url redirect after shutting down all previous connections
   sendMessage('bye');
-  window.location.replace("http://stackoverflow.com");
+  window.location.replace("/");
 
 });
 
