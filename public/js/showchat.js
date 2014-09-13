@@ -42,16 +42,23 @@ function sendMessage(message){
 var localVideo = document.querySelector('#localVideo');
 var remoteVideo = document.querySelector('#remoteVideo');
 
+
+
+////////////////////////////////////////////////////////////////////
+
+$(document).ready(function() {
+
 function handleUserMedia(stream) {
   localStream = stream;
   attachMediaStream(localVideo, stream);
   console.log('Adding local stream.');
 
-	message.type = "gotusermedia";
-	message.room = $("#guide").text();
-	message.payload = "non";	
+  message.type = "gotusermedia";
+  message.room = $("#guide").text();
+  message.payload = "non";  
 
   sendMessage(message);
+
 
   if (isInitiator) {
     maybeStart();
@@ -63,11 +70,6 @@ function handleUserMediaError(error){
 }
 
 var constraints = {video: true, audio: true};
-
-////////////////////////////////////////////////////////////////////
-
-$(document).ready(function() {
-
 	$("#connect").click(function(e) {
 		//humane.log("Connecting...");
 		var room =  $("#guide").text(); 
@@ -114,6 +116,12 @@ socket.on('log', function (array){
 socket.on('created', function (message){
   console.log('Created ' + message.room);
   isInitiator = true;
+  /*$("foot").attr("href", 'User 2 link: ' + document.URL);
+  */
+  $("a").prop("href", document.URL);
+  
+  $("a").text('Link to User 2');
+
 });
 
 // the second client joins 

@@ -5,13 +5,11 @@ block content
 	#fullpage
 		#section0.section
 			.intro
-				h1(style='margin: 70px 0 10px 0;color:white;') x-message 
-				h2(style='margin: 70px 0 10px 0;font-size: 300%') #hackx
+				h1(style='margin: 70px 0 10px 0;color:white;') WebRTC Hacks
+				h2(style='margin: 70px 0 10px 0;font-size: 300%') #make
 		#section2.section
 			.intro
-				h1(style='margin: 70px 0 10px 0;color:white;') Choose a room
+				h1(style='margin: 70px 0 10px 0;color:white;') 
+					a(href="/room?roomid=test" target="_blank") Real Time Video Collaboration
 				br
 				br
-				br
-				form(method="get", action="/room")
-					input(type='search', action='/search', name='roomid', placeholder='Room', style='width: 500px; height: 44px ;font-size: 150%')
