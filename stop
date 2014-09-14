@@ -1,0 +1,7 @@
+#!/bin/bash
+
+
+# Invoke the Forever module (to STOP our Node.js server).
+sudo forever stop ~/workspace/nodejs/hackx/bin/www
+
+
