@@ -69,7 +69,7 @@ function handleUserMediaError(error){
   console.log('getUserMedia error: ', error);
 }
 
-var constraints = {video: true, audio: true};
+var constraints = {video: true, audio:true};
 	$("#connect").click(function(e) {
 		//humane.log("Connecting...");
 		var room =  $("#guide").text(); 
@@ -162,6 +162,7 @@ socket.on('message', function (message){
     pc.addIceCandidate(candidate);
   } else if (message === 'bye' && isStarted) {
     handleRemoteHangup();
+socket.disconnect();
   }
 });
 
@@ -216,6 +217,7 @@ function handleIceCandidate(event) {
     console.log('End of candidates.');
   }
 }
+
 
 
 
